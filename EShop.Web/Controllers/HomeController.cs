@@ -1,4 +1,5 @@
 ﻿using EShop.Web.Models;
+using EShop.Web.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -9,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace EShop.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : Controller 
     {
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
-        {
+        {          
             _logger = logger;
         }
 
