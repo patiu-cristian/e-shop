@@ -7,15 +7,16 @@ namespace EShop.Web.Services
 {
     public class InMemoryRepository<T> : IRepository<T>
     {
-        List<T> Memory = new List<T>();
+        private readonly List<T> entities = new List<T>();
+
         public void Add(T entity)
         {
-            Memory.Add(entity);
+            this.entities.Add(entity);
         }
 
         public IEnumerable<T> GetAll()
         {
-            return Memory;
+            return this.entities;
         }
     }
 }

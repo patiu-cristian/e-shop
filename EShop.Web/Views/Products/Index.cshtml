@@ -7,18 +7,19 @@
     <h1 class="display-4">Products</h1>
 </div>
 <p>
-    <a class="btn btn-primary" asp-controller="Products" asp-action="AddProduct">Add Product</a>
+    <a class="btn btn-primary" asp-controller="Products" asp-action="PostProduct">Add Product</a>
 </p>
 
 <div class="row">
     @foreach (var product in Model)
     {
-        <div class="card col-4">
-            <div class="card-body">
-                <h5 class="card-title">@product.DenumireProdus</h5>
-                <p class="card-text">@product.Descriere</p>
+        <div class="col-4">
+            <div class="card m-1">
+                <div class="card-body">
+                    <h5 class="card-title">@product.Name</h5>
+                    <p class="card-text">@product.Description</p>
+                </div>
             </div>
         </div>
     }
 </div>
-

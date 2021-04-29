@@ -1,0 +1,25 @@
+﻿@model EShop.Web.Models.ProductModel
+@{
+    ViewData["Title"] = "Add Product";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Add Product</h1>
+</div>
+<form method="post">
+
+    <div class="form-text">
+        <label asp-for="Name">Product Name</label>
+        <input asp-for="Name" class="form-control" placeholder="Product Name">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-text mb-1">
+        <label asp-for="Description">Product Description</label>
+        <input asp-for="Description" class="form-control" placeholder="Product Description">
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>

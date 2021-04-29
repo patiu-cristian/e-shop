@@ -9,10 +9,9 @@ namespace EShop.Web.Models
     public class ProductModel
     {
         [Required(ErrorMessage ="This field can't be empty")]
-        [MinLength(4,ErrorMessage ="Minimum length 4")]
-        public string DenumireProdus { get; set; }
+        public string Name { get; set; }
+
         [Required(ErrorMessage = "This field can't be empty")]
-        public string Descriere { get; set; }
-             
+        public string Description { get; set; }           
     }
 }

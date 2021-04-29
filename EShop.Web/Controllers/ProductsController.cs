@@ -1,43 +1,40 @@
 ﻿using EShop.Web.Models;
 using EShop.Web.Services;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EShop.Web.Controllers
 {
     public class ProductsController : Controller
-    {
-        public ProductsController(IRepository<ProductModel> product)
+    {     
+        private readonly IRepository<ProductModel> productRepository;
+
+        public ProductsController(IRepository<ProductModel> productRepository)
         {
-            this.ProductRepository = product;
+            this.productRepository = productRepository;
         }
-        public IRepository<ProductModel> ProductRepository;
-        
+
         public IActionResult Index()
         {
-            var produse = ProductRepository.GetAll();
-            return View(produse);
+            return this.View(this.productRepository.GetAll());
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AddProduct(ProductModel product)
+        public IActionResult PostProduct(ProductModel product)
         {
-            if (ModelState.IsValid) 
+            if (this.ModelState.IsValid) 
             { 
-                ProductRepository.Add(product);
+                this.productRepository.Add(product);
 
-                return RedirectToAction("Index");
+                return this.RedirectToAction("Index");
             }
 
-            return View();
+            return this.View();
         }
 
-        public IActionResult AddProduct() 
+        public IActionResult PostProduct() 
         {
-           return View();
+           return this.View();
         }
     }
 }
