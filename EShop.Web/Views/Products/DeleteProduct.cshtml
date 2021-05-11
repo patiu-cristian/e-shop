@@ -1,0 +1,13 @@
+﻿@model EShop.Web.Models.ProductModel
+@{
+    ViewData["Title"] = "Delete Product";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Are you sure you want to delete @Model.Name ? </p>
+
+<form method="post">
+    <a class="btn" asp-controller="Products" asp-action="Index" > Back </a>
+    <button class="btn btn-outline-danger"> Delete </button>
+</form>

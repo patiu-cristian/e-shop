@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<ProductModel>
 @{
-    ViewData["Title"] = "Products";
+ViewData["Title"] = "Products";
 }
 
 <div class="text-center">
@@ -14,10 +14,12 @@
     @foreach (var product in Model)
     {
         <div class="col-4">
-            <div class="card m-1">
+            <div class="card m-1 text-center">
                 <div class="card-body">
                     <h5 class="card-title">@product.Name</h5>
                     <p class="card-text">@product.Description</p>
+                    <a class="btn btn-outline-danger" asp-controller="Products" asp-action="DeleteProduct" asp-route-id="@product.Id"> Delete </a>                               
+                    <a class="btn btn-outline-success" asp-controller="Products" asp-action="EditProduct" asp-route-id="@product.Id"> Edit Product </a>
                 </div>
             </div>
         </div>
