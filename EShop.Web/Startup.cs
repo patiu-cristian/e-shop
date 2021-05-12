@@ -24,7 +24,8 @@ namespace EShop.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton(typeof(IRepository<>), typeof(InMemoryRepository<>));
+            // services.AddSingleton(typeof(IRepository<>), typeof(InMemoryRepository<>));
+            services.AddSingleton(typeof(IRepository<>), typeof(FileSystemRepository<>));
             services.AddControllersWithViews();
         }
 
